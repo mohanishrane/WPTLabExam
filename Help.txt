@@ -1,0 +1,34 @@
+*For DB:
+npm install mysql
+npm install bluebird
+
+const mysql = require("mysql");
+const Promise = require("bluebird");
+Promise.promisifyAll(require("mysql/lib/Connection").prototype);
+
+const dbinfo = {
+  host: "localhost",
+  user: "root",
+  password: "mysql1917",
+  database: "wptexamprac",
+};
+
+*For server:
+npm install express
+npm install cors
+npm install nodemon
+and in script tag write "start": "nodemon src/serverfile.js", and then
+u can start with npm start instead of running node src/serverfile.js again and again
+
+const express = require("express");
+const app = express();
+app.use(express.json());
+const cors = require("cors");
+app.use(cors());
+const { select, insert } = require("./user.js");
+
+*For frontend in React App.js:
+npm install axios
+
+import { useState } from "react";
+import axios from "axios";
